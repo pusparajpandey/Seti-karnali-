@@ -101,6 +101,32 @@
     .theme-vibrant .hero-section {
       background-image: url('https://via.placeholder.com/1200x400?text=Nepali+Vibes+at+Seti+Karnali');
     }
+    /* Pop-up Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #e0f2fe;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 2000;
+      max-width: 90%;
+      text-align: center;
+    }
+    .theme-dark .popup {
+      background-color: #4b5563;
+      color: #d1d5db;
+    }
+    .theme-vibrant .popup {
+      background-color: #ffedd5;
+      color: #78350f;
+    }
+    .popup.show {
+      display: block;
+    }
   </style>
 </head>
 <body class="theme-light">
@@ -195,7 +221,7 @@
         </div>
       </div>
       <!-- Image 7 -->
-      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-ridden">
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
         <img src="https://via.placeholder.com/300?text=Copper+Utensils" alt="Copper Utensils" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-semibold">Copper Utensils</h3>
@@ -244,14 +270,20 @@
     <h2 class="text-3xl font-bold text-center mb-8">Contact Seti Karnali Traders</h2>
     <div class="max-w-lg mx-auto">
       <p class="text-center mb-6">Want to know more about our goods? Reach out to us!</p>
-      <div class="space-y-4">
-        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg">
-        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg">
-        <textarea placeholder="Your Message" class="w-full p-3 rounded-lg h-32"></textarea>
-        <button type="button" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-6 py-3 rounded-lg w-full">Send Message</button>
-      </div>
+      <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg" required>
+        <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg" required>
+        <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded-lg h-32" required></textarea>
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-6 py-3 rounded-lg w-full">Send Message</button>
+      </form>
     </div>
   </section>
+
+  <!-- Pop-up -->
+  <div id="popup" class="popup">
+    <p class="text-lg font-semibold">Your message has been sent to Seti Karnali Traders. Thank you!</p>
+    <button id="close-popup" class="mt-4 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded-lg">Close</button>
+  </div>
 
   <!-- Final Message Section -->
   <section class="py-12 px-4 md:px-8">
@@ -266,7 +298,7 @@
     <div class="text-center">
       <h3 class="text-2xl font-bold mb-2">Seti Karnali Traders</h3>
       <p>© 2025 All rights reserved.</p>
-      <p>Contact: <a href="mailto:info@setikarnalitraders.com" class="underline">info@setikarnalitraders.com</a> | Phone: +977 9848410353   9847134583</p>
+      <p>Contact: <a href="mailto:info@setikarnalitraders.com" class="underline">info@setikarnalitraders.com</a> | Phone: +977-123-456-7890</p>
       <div class="mt-4">
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Facebook</a>
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Instagram</a>
@@ -291,6 +323,34 @@
           behavior: 'smooth'
         });
       });
+    });
+
+    // Form Submission and Pop-up
+    const form = document.getElementById('contact-form');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('close-popup');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          popup.classList.add('show');
+          form.reset();
+        } else {
+          alert('There was an error sending your message. Please try again.');
+        }
+      } catch (error) {
+        alert('There was an error sending your message. Please try again.');
+      }
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.classList.remove('show');
     });
   </script>
 </body>
