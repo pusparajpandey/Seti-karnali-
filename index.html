@@ -270,9 +270,10 @@
     <h2 class="text-3xl font-bold text-center mb-8">Contact Seti Karnali Traders</h2>
     <div class="max-w-lg mx-auto">
       <p class="text-center mb-6">Want to know more about our goods? Reach out to us!</p>
-      <form id="contact-form" action="https://formspree.io/forms/xwpoybbq/integration" method="POST" class="space-y-4">
+      <form id="contact-form" action="https://formspree.io/forms/xwpoybbq/submissions" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg" required>
         <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg" required>
+        <input type="hidden" name="_replyto" value="puspapandey56@gmail.com">
         <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded-lg h-32" required></textarea>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-6 py-3 rounded-lg w-full">Send Message</button>
       </form>
@@ -281,7 +282,7 @@
 
   <!-- Pop-up -->
   <div id="popup" class="popup">
-    <p class="text-lg font-semibold">Your message has been sent to Seti Karnali Traders. Thank you!</p>
+    <p class="text-lg font-semibold">Your message has been sent to Seti Karnali Traders. Thank you!<br>तपाईंको सन्देश सेती कर्णाली ट्रेडर्समा पठाइयो। धन्यवाद!</p>
     <button id="close-popup" class="mt-4 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded-lg">Close</button>
   </div>
 
@@ -298,7 +299,7 @@
     <div class="text-center">
       <h3 class="text-2xl font-bold mb-2">Seti Karnali Traders</h3>
       <p>© 2025 All rights reserved.</p>
-      <p>Contact: <a href="mailto:puspapandey56@gmail.com" class="underline">puspapandey56@gmail.com</a> | Phone: +977 9848410353 </p>
+      <p>Contact: <a href="mailto:puspapandey56@gmail.com" class="underline">puspapandey56@gmail.com</a> | Phone: +977-123-456-7890</p>
       <div class="mt-4">
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Facebook</a>
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Instagram</a>
@@ -336,7 +337,7 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         console.log('Form submitted, attempting to send data to Formspree...');
-        
+
         try {
           const response = await fetch(form.action, {
             method: form.method,
@@ -349,11 +350,11 @@
             popup.classList.add('show');
             form.reset();
           } else {
-            console.error('Form submission failed with status:', response.status);
+            console.error('Form submission failed with status:', response.status, response.statusText);
             alert('There was an error sending your message. Please try again later.');
           }
         } catch (error) {
-          console.error('Error during form submission:', error);
+          console.error('Error during form submission:', error.message);
           alert('There was an error sending your message. Please check your internet connection and try again.');
         }
       });
