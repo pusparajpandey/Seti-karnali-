@@ -270,7 +270,7 @@
     <h2 class="text-3xl font-bold text-center mb-8">Contact Seti Karnali Traders</h2>
     <div class="max-w-lg mx-auto">
       <p class="text-center mb-6">Want to know more about our goods? Reach out to us!</p>
-      <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST" class="space-y-4">
+      <form id="contact-form" action="https://formspree.io/forms " method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg" required>
         <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg" required>
         <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded-lg h-32" required></textarea>
@@ -298,7 +298,7 @@
     <div class="text-center">
       <h3 class="text-2xl font-bold mb-2">Seti Karnali Traders</h3>
       <p>© 2025 All rights reserved.</p>
-      <p>Contact: <a href="mailto:info@setikarnalitraders.com" class="underline">info@setikarnalitraders.com</a> | Phone: +977-123-456-7890</p>
+      <p>Contact: <a href="mailto:puspapandey56@gmail.com" class="underline">puspapandey56@gmail.com</a> | Phone: +977 9848410353 </p>
       <div class="mt-4">
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Facebook</a>
         <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Instagram</a>
@@ -330,28 +330,39 @@
     const popup = document.getElementById('popup');
     const closePopup = document.getElementById('close-popup');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-          popup.classList.add('show');
-          form.reset();
-        } else {
-          alert('There was an error sending your message. Please try again.');
-        }
-      } catch (error) {
-        alert('There was an error sending your message. Please try again.');
-      }
-    });
+    if (!form || !popup || !closePopup) {
+      console.error('Form or popup elements not found. Check IDs: contact-form, popup, close-popup');
+    } else {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log('Form submitted, attempting to send data to Formspree...');
+        
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
 
-    closePopup.addEventListener('click', () => {
-      popup.classList.remove('show');
-    });
+          if (response.ok) {
+            console.log('Form submission successful!');
+            popup.classList.add('show');
+            form.reset();
+          } else {
+            console.error('Form submission failed with status:', response.status);
+            alert('There was an error sending your message. Please try again later.');
+          }
+        } catch (error) {
+          console.error('Error during form submission:', error);
+          alert('There was an error sending your message. Please check your internet connection and try again.');
+        }
+      });
+
+      closePopup.addEventListener('click', () => {
+        console.log('Closing popup');
+        popup.classList.remove('show');
+      });
+    }
   </script>
 </body>
 </html>
