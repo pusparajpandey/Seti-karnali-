@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seti Karnali Traders - Discover our unique collection of Nepali goods, from brass idols to textiles. Visit us in Karnali!">
+  <meta name="keywords" content="Seti Karnali Traders, Nepali handicrafts, brass idol, shop, Karnali">
+  <title>Seti Karnali Traders</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .gallery-img {
+      transition: transform 0.3s ease;
+    }
+    .hero-section {
+      background-image: url('https://via.placeholder.com/1200x400?text=Explore+Seti+Karnali+Traders');
+      background-size: cover;
+      background-position: center;
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .message-box {
+      border-left: 4px solid;
+    }
+    .shop-name {
+      font-size: 2.25rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #1e40af, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(30, 64, 175, 0.5); }
+      to { text-shadow: 0 0 15px rgba(30, 64, 175, 0.8); }
+    }
+    /* Light Theme (Default) */
+    .theme-light {
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+    .theme-light .message-box {
+      background-color: #e0f2fe;
+      border-left-color: #1e40af;
+    }
+    .theme-light .section-bg {
+      background-color: #ffffff;
+    }
+    .theme-light .hero-text {
+      color: #1f2937;
+    }
+    .theme-light .nav-bg {
+      background-color: #e5e7eb;
+    }
+    /* Dark Theme */
+    .theme-dark {
+      background-color: #1f2937;
+      color: #d1d5db;
+    }
+    .theme-dark .message-box {
+      background-color: #4b5563;
+      border-left-color: #60a5fa;
+    }
+    .theme-dark .section-bg {
+      background-color: #374151;
+    }
+    .theme-dark .hero-text {
+      color: #d1d5db;
+    }
+    .theme-dark .nav-bg {
+      background-color: #111827;
+    }
+    /* Vibrant Theme (Nepali-inspired) */
+    .theme-vibrant {
+      background-color: #fef3c7;
+      color: #78350f;
+    }
+    .theme-vibrant .message-box {
+      background-color: #ffedd5;
+      border-left-color: #c2410c;
+    }
+    .theme-vibrant .section-bg {
+      background-color: #fff7ed;
+    }
+    .theme-vibrant .hero-text {
+      color: #78350f;
+    }
+    .theme-vibrant .nav-bg {
+      background-color: #ea580c;
+    }
+    .theme-vibrant .hero-section {
+      background-image: url('https://via.placeholder.com/1200x400?text=Nepali+Vibes+at+Seti+Karnali');
+    }
+  </style>
+</head>
+<body class="theme-light">
+  <!-- Navigation Bar -->
+  <nav class="sticky-nav nav-bg shadow-md py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="shop-name">Seti Karnali Traders</h1>
+      <div class="flex space-x-6 items-center">
+        <ul class="flex space-x-6">
+          <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+          <li><a href="#goods" class="hover:text-blue-600">Our Goods</a></li>
+          <li><a href="#about" class="hover:text-blue-600">About</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+        <select id="theme-toggle" class="p-2 rounded-lg bg-gray-200">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="vibrant">Vibrant</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section h-96 flex items-center justify-center">
+    <div class="text-center hero-text">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Welcome to Our Shop</h1>
+      <p class="text-lg md:text-xl mb-6">Explore unique Nepali goods, from brass idols to textiles!</p>
+      <a href="#goods" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-6 py-3 rounded-lg text-lg">View Our Collection</a>
+    </div>
+  </section>
+
+  <!-- Message Section -->
+  <section class="py-12 px-4 md:px-8">
+    <div class="message-box max-w-3xl mx-auto p-6 rounded-lg">
+      <h2 class="text-2xl font-semibold mb-4">Discover Seti Karnali Traders</h2>
+      <p>Visit our shop in the heart of Karnali to explore a curated collection of Nepali handicrafts and essentials. From intricate brass idols to vibrant textiles, we have something for everyone. Come experience our commitment to quality and community!</p>
+    </div>
+  </section>
+
+  <!-- Goods Gallery -->
+  <section id="goods" class="py-12 px-4 md:px-8 section-bg">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Goods</h2>
+    <p class="text-center max-w-2xl mx-auto mb-8">Browse our selection of unique products available at Seti Karnali Traders. Visit us to see these and more!</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <!-- Image 1 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Brass+Idol" alt="Brass Idol" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Brass Idol</h3>
+          <p>Ornate spiritual decor.</p>
+        </div>
+      </div>
+      <!-- Image 2 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Dhaka+Fabric" alt="Dhaka Fabric" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Dhaka Fabric</h3>
+          <p>Traditional Nepali textiles.</p>
+        </div>
+      </div>
+      <!-- Image 3 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Pottery" alt="Pottery" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Pottery</h3>
+          <p>Handcrafted clay items.</p>
+        </div>
+      </div>
+      <!-- Image 4 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Wood+Carving" alt="Wood Carving" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Wood Carving</h3>
+          <p>Artisanal woodwork.</p>
+        </div>
+      </div>
+      <!-- Image 5 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Silver+Jewelry" alt="Silver Jewelry" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Silver Jewelry</h3>
+          <p>Unique accessories.</p>
+        </div>
+      </div>
+      <!-- Image 6 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Pashmina+Shawl" alt="Pashmina Shawl" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Pashmina Shawl</h3>
+          <p>Luxurious warmth.</p>
+        </div>
+      </div>
+      <!-- Image 7 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-ridden">
+        <img src="https://via.placeholder.com/300?text=Copper+Utensils" alt="Copper Utensils" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Copper Utensils</h3>
+          <p>Durable kitchenware.</p>
+        </div>
+      </div>
+      <!-- Image 8 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Leather+Purse" alt="Leather Purse" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Leather Purse</h3>
+          <p>Stylish and sturdy.</p>
+        </div>
+      </div>
+      <!-- Image 9 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Spice+Blend" alt="Spice Blend" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Spice Blend</h3>
+          <p>Authentic Nepali flavors.</p>
+        </div>
+      </div>
+      <!-- Image 10 -->
+      <div class="gallery-img bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/300?text=Bamboo+Mat" alt="Bamboo Mat" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Bamboo Mat</h3>
+          <p>Eco-friendly decor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12 px-4 md:px-8 section-bg">
+    <h2 class="text-3xl font-bold text-center mb-8">About Seti Karnali Traders</h2>
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="mb-4">Located in the vibrant Karnali region, Seti Karnali Traders is your go-to shop for quality Nepali goods. We source products with care to bring you the best in craftsmanship and value.</p>
+      <p><strong>Shop Hours:</strong> Monday–Saturday, 9 AM–6 PM</p>
+      <p><strong>Address:</strong> Main Street, Karnali Region, Nepal (Update with your address)</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 px-4 md:px-8 section-bg">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact Seti Karnali Traders</h2>
+    <div class="max-w-lg mx-auto">
+      <p class="text-center mb-6">Want to know more about our goods? Reach out to us!</p>
+      <div class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg">
+        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg">
+        <textarea placeholder="Your Message" class="w-full p-3 rounded-lg h-32"></textarea>
+        <button type="button" class="bg-blue-600 hover:bg-blue-700 text-gray-100 px-6 py-3 rounded-lg w-full">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Message Section -->
+  <section class="py-12 px-4 md:px-8">
+    <div class="message-box max-w-3xl mx-auto p-6 rounded-lg text-center">
+      <h2 class="text-2xl font-semibold mb-4">Visit Seti Karnali Traders!</h2>
+      <p>Come explore our shop and find goods that inspire. We’re here to make your shopping experience unforgettable!</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-100 py-6">
+    <div class="text-center">
+      <h3 class="text-2xl font-bold mb-2">Seti Karnali Traders</h3>
+      <p>© 2025 All rights reserved.</p>
+      <p>Contact: <a href="mailto:info@setikarnalitraders.com" class="underline">info@setikarnalitraders.com</a> | Phone: +977-123-456-7890</p>
+      <div class="mt-4">
+        <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Facebook</a>
+        <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Instagram</a>
+        <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('change', () => {
+      document.body.classList.remove('theme-light', 'theme-dark', 'theme-vibrant');
+      document.body.classList.add(`theme-${themeToggle.value}`);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
